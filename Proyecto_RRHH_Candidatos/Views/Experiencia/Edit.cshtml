@@ -1,0 +1,69 @@
+﻿@model ExperienciaLaboral
+@{
+    Layout = "~/Views/Shared/_StartLayout.cshtml";
+}
+<!-- End Navbar -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title">Experiencia</h4>
+                        <p class="card-category">En el formulario puede actualizar la informacion de la experiencia laboral</p>
+                    </div>
+                    <div class="card-body p-5">
+                        <form asp-controller="Experiencia" asp-action="Edit" method="post">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    @Html.HiddenFor(x => x.Id)
+                                    @Html.HiddenFor(x => x.Candidato)
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Empresa</label>
+                                        <input type="text" class="form-control" asp-for="@Model.Empresa">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Puesto</label>
+                                        <input type="text" class="form-control" asp-for="@Model.Puesto">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Funcion desempeñada</label>
+                                        <input type="text" class="form-control" asp-for="@Model.Descripcion">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Salario</label>
+                                        <input type="text" class="form-control" asp-for="@Model.Salario">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Fecha inicial</label>
+                                        <input type="text" class="form-control" asp-for="@Model.FechaInicio">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Fecha Final</label>
+                                        <input type="text" class="form-control" asp-for="@Model.FechaFinal">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-sucess pull-right">Actualizar Experiencias</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

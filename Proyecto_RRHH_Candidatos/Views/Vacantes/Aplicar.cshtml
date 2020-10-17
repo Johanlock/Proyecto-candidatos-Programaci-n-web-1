@@ -1,0 +1,23 @@
+﻿@model Puestos
+@{
+    Layout = "~/Views/Shared/_StartLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="card card-profile">
+        <div class="card-avatar">
+            <a href="javascript:;">
+                <img class="img" src="~/images/check.png" />
+            </a>
+        </div>
+        <div class="card-body">
+            <h3>Ha aplicado a la vacante @Model.Descripcion</h3>
+            <h3>Salario @Model.Salario</h3>
+            <h3>Departamento @Model.DepartamentoNavigation.Descripcion</h3>
+            <h3>Nivel de riesgo @Model.NivelDeRiesgo</h3>
+            <div class="group-buttons">
+                <a asp-controller="Vacantes" asp-action="Index" class="btn btn-info"><i class="material-icons">history</i>Volver a vacantes</a>
+            </div>
+        </div>
+    </div>
+</div>

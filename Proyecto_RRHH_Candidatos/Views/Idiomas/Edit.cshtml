@@ -1,0 +1,47 @@
+﻿@model Idiomas
+@{
+    Layout = "~/Views/Shared/_StartLayout.cshtml";
+    List<NivelesHabilidad> sln = ViewBag.niveles;
+}
+<!-- End Navbar -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title">Idiomas</h4>
+                        <p class="card-category">En el formulario puede actualizar la informacion de la competencia</p>
+                    </div>
+                    <div class="card-body p-5">
+                        <form asp-controller="Idiomas" asp-action="Edit" method="post">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    @Html.HiddenFor(x => x.Id)
+                                    @Html.HiddenFor(x => x.Estado)
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Nombre</label>
+                                        <input type="text" class="form-control" asp-for="@Model.Descripcion">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Nivel</label>
+                                        <select class="form-control" asp-for="@Model.Nivel">
+                                            @foreach (var item in sln)
+                                            {
+                                                <option value="@item.Id">@item.Descripcion</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-sucess pull-right">Actualizar Idioma</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
